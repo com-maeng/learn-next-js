@@ -1,11 +1,12 @@
 <html>
   <body>
     <div id="app"></div>
+
+    <!-- React, React DOM, Babel -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-    <!-- Babel Script -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <script type="text/jsx">
       const app = document.getElementById("app");
 
@@ -29,7 +30,7 @@
                     <li key={name}>{name}</li>
               ))}
             </ul>
-            <button onClick={handleClick}>Like</button>
+            <button onClick={handleClick}>Like {likes}</button>
           </div>
         );
       }
