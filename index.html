@@ -8,9 +8,22 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
       const app = document.getElementById("app");
-      const root = ReactDOM.createRoot(app);
 
-      root.render(<h1>Develop. Preview. Ship.</h1>);
+      function Header() {  // A single React component
+        return (<h1>Develop. Preview. Ship.</h1>);
+      }
+
+      function HomePage() {  // Top-level component
+        return (
+          <div>
+            {/* Nesting the Header component */}
+            <Header />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);
     </script>
   </body>
 </html>
