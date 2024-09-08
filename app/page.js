@@ -1,42 +1,27 @@
-<html>
-  <body>
-    <div id="app"></div>
+// The main page of the application.
 
-    <!-- React, React DOM, Babel -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+import LikeButton from "./like-button";
 
-    <script type="text/jsx">
-      const app = document.getElementById("app");
+function Header({ title }) {
+  // A single React component
 
-      function Header({ title }) {  // A single React component
-        return <h1>{title ? title : 'Default Title'}</h1>;
-      }
+  return <h1>{title ? title : "Default Title"}</h1>;
+}
 
-      function HomePage() {  // Top-level component
-        const [likes, setLikes] = React.useState(0);
-        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+export default function HomePage() {
+  // Main/Top-level component of the page
 
-        function handleClick() {
-          setLikes(likes + 1);
-        }
+  const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"];
 
-        return (
-          <div>
-            <Header title="Develop. Preview. Ship." />
-            <ul>
-              {names.map((name) => (
-                    <li key={name}>{name}</li>
-              ))}
-            </ul>
-            <button onClick={handleClick}>Like {likes}</button>
-          </div>
-        );
-      }
-
-      const root = ReactDOM.createRoot(app);
-      root.render(<HomePage />);
-    </script>
-  </body>
-</html>
+  return (
+    <div>
+      <Header title="Develop. Preview. Ship." />
+      <ul>
+        {names.map((name) => (
+          <li key="{name}">{name}</li>
+        ))}
+      </ul>
+      <LikeButton />
+    </div>
+  );
+}
